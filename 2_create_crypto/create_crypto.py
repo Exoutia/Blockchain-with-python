@@ -182,7 +182,6 @@ def replace_chain():
     if is_chain_replaced:
         response = {'message': 'The nodes had different chains so the chain was replaced.',
                     'new_chain': blockchain.chain}
-        
     else:
         response = {'message': 'All good, chain is the largest one.', 
                     'chain': blockchain.chain}
