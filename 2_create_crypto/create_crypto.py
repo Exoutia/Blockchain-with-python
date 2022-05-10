@@ -1,5 +1,5 @@
-# Module 2: create a crypto with blockchain AZ blockchain
-#TODO Make a vive crypto currencies(Yes thats the name i have given to my crypto)
+# Here we are going to use same blockchain we created to make a cyptocurrency on it 
+#TODO Make a vive crypto currency(Yes thats the name i have given to my crypto)
 # first we installed flask==0.12.2
 # and now we are installing api builder i guess, a app called postman(people give great name in developer community)
 # requests==2.18.4 library install

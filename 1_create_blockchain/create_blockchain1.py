@@ -1,12 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Apr 10 13:01:20 2022
-
-@author: bibek
-"""
-# Module 1: create a blockchain AZ blockchain
 # first we installed flask==0.12.2
 # and now we are installing api builder i guess, a app called postman(people give great name in developer community)
+# (this is just me, sometimes like to contemplate names of thigs in my code, and get a idea if I create something what will I name it)
 
 import datetime
 import hashlib
