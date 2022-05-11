@@ -5,7 +5,6 @@
 # and now we are installing api builder i guess, a app called postman(people give great name in developer community)
 # requests==2.18.4 library install
 
-from crypt import methods
 import datetime
 from email import message
 import hashlib
@@ -33,7 +32,7 @@ class Blockchain:
                  'proof': proof,
                  'prev_hash': prev_hash,
                  'transaction': self.transactions}
-        del self.transactions[:]
+        self.transactions = []
         self.chain.append(block)
         return block
     
@@ -119,14 +118,14 @@ def mine_block():
     previous_proof = previous_block['proof']
     proof = blockchain.proof_of_work(previous_proof)
     previous_hash = blockchain.hash(previous_block)
-    blockchain.add_transaction(sender=node_address, receiver='Hunter', amount=1)
+    blockchain.add_transaction(sender=node_address, receiver='Buddy', amount=1)
     block = blockchain.create_block(proof, previous_hash)
     response = {'message': "Congratulation, you just mined a block!", 
                 'index':block['index'],
                 'timestamp': block['timestamp'],
                 'proof': block['proof'],
                 'prev_hash': block['prev_hash'],
-                'transactions': block['transactions'],
+                'transactions': block['transaction'],
                 }
     
     return jsonify(response), 200
@@ -149,7 +148,7 @@ def is_valid():
     return jsonify(response), 200
     
 # Adding a new transaction to the blockchain
-@app.route('/add_transanction', methods = ['POST'])
+@app.route('/add_transaction', methods = ['POST'])
 def add_transaction():
     json = request.get_json()
     transaction_keys = ['sender', 'receiver', 'amount']
@@ -166,7 +165,7 @@ def add_transaction():
 @app.route('/connect_node', methods = ['POST'])
 def connect_node():
     json = request.get_json()
-    nodes = json.get('node')
+    nodes = json.get('nodes')
     if nodes is None:
         return 'No node', 400
     for node in nodes:
@@ -188,7 +187,7 @@ def replace_chain():
     return jsonify(response), 200
 
 # Running the app
-app.run(host ='0.0.0.0', port=5000)
+app.run(host ='0.0.0.0', port=5003)
 
 
 

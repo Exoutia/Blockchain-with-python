@@ -26,7 +26,7 @@ class Blockchain:
         return self.chain[-1]
     
     def proof_of_work(self, prev_proof):
-        new_proof = 1;
+        new_proof = 1
         check_proof = False
         while check_proof is False:
             hash_operation = hashlib.sha256(str(new_proof**3 - prev_proof**2).encode()).hexdigest()
